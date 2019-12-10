@@ -6,26 +6,50 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:26:56 by mzhu              #+#    #+#             */
-/*   Updated: 2019/12/09 23:25:44 by mzhu             ###   ########.fr       */
+/*   Updated: 2019/12/10 23:12:19 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include <fdf.h>
 
-int main(void)
+int main(int ac, char **av)
 {
-  void *mlx;
-  void *window;
-  int pixel;
-  int tamer;
-  int i = 0;
-  mlx = mlx_init();
-  window = mlx_new_window(mlx,1000, 1000, "ntm");
-  while ()
-  pixel = mlx_pixel_put(mlx, window, 500, 500, 222);
-  tamer = mlx_string_put(mlx, window, 50, 36, 222, ".");
+	void *mlx;
+	void *window;
+	int pixel;
+	int tamer;
+	int		fd;
+	int		*lines;
+	int		**tab;
 
-  mlx_loop(mlx);
-  return (0);
+	lines = 0;
+	fd = 0;
+	if (ac == 2)
+	{
+		int i = 0;
+		mlx = mlx_init();
+		window = mlx_new_window(mlx,1000, 1000, "ntm");
+		if (!((fd = open(av[1], O_RDONLY))))
+			return (0);
+		lines = check_first(fd);
+		if (lines[0] == 0 && lines[1] == 0)
+			return (ERROR);
+		close(fd);
+		if (!((fd = open(av[1], O_RDONLY))))
+			return 0;
+		if ((tab = parser(fd, lines[0], lines[1])) == 0)
+			return (ERROR);
+		int f = 0;
+		while (i < lines[0])
+		{
+			f = -1;
+			while (f++ < lines[1] && tab[i][f + 1])
+				pixel = mlx_pixel_put(mlx, window, tab[i][f], tab[i][f + 1], 222);
+		}
+		mlx_loop(mlx);
+	}
+	else
+		ft_putstr("Usage : ./fdf your_file");
+	return (0);
 }
