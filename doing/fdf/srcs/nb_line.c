@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 17:19:21 by mzhu              #+#    #+#             */
-/*   Updated: 2019/12/02 21:53:17 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/01/16 06:35:42 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,12 @@ int			valid_line(char *str)
 	return (0);
 }
 
-int			*check_first(int fd)
+void			*check_first(int fd, int *size_line, int *nb_line)
 {
 	int		lines;
 	int		nb_chr;
 	int		cmp;
 	char	*line;
-	int		*tab;
 
 	lines = 0;
 	nb_chr = 0;
@@ -50,10 +49,9 @@ int			*check_first(int fd)
 			tab[1] = 0;
 			break;
 		}
-		tab[0] = lines;
-		tab[1] = nb_chr;
+		&nb_line = lines;
+		&size_line = nb_chr;
 		lines++;
 		free(line);
 	}
-	return (tab);
 }

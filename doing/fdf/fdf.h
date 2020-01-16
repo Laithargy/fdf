@@ -9,24 +9,22 @@
 #include <math.h>
 
 typedef struct		s_tab {
-    int     **tab;
-    int     height;
-    int     width;
+    int     **tab; //map
+    int     height; //nb line
+    int     width; //size line
 }					t_tab;
 
 typedef	struct	s_img
 {
-	void	*img_ptr;
-	int		*data;
-	int		bpp;
-	int		size_l;
-	int		endian;
+	int		bpp; //bytes per pixel
+	int		size_l; //size line * 4
+	int		endian; // 1 or 0
 }				t_img;
 
 typedef struct		s_mlx
 {
-	void	*mlx_ptr;
-	void	*mlx_window;
+	void	*mlx_ptr; //mlx_init
+	void	*mlx_window; //mlx_window
 }					t_mlx;
 
 int			**parser(int fd, int nb_lines, int size_line);
