@@ -6,31 +6,32 @@
 #    By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/09 22:41:51 by mzhu              #+#    #+#              #
-#    Updated: 2019/12/09 23:01:07 by mzhu             ###   ########.fr        #
+#    Updated: 2020/01/16 06:02:51 by mzhu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+NAME			= fdf
 
 SRC_DIR			= ./srcs
 
 OUTPUT_DIR		= build
 
-SRCS			= $(shell find . -type f | grep  "\.c$$")
+SRCS			= $(shell find $(SRC_DIR) -type f | grep  "\.c$$")
 
 OBJ				:= $(patsubst $(SRC_DIR)/%.c,$(OUTPUT_DIR)/%.o,$(SRCS))
 
 DEP				:= $(OBJ:.o=.d)
 
-CFLAGS			= -I ./includes -Wall -Wextra
+CFLAGS			= -I . -Wall -Wextra
 
-NAME			= fdf
+LDFLAGS			= -lmlx -framework OpenGL -framework Appkit -L ./Libft -lft 
 
-
-all: #$(NAME)
-	echo $(OBJ)
-
+all: $(NAME)
 
 $(NAME): $(OBJ)
-		$(CC) -o $@ $^
+		$(MAKE) -C ./Libft
+		$(MAKE) -C ./minilibx
+		$(CC) -o $@ $(LDFLAGS) $^
 
 -include $(DEP)
 
@@ -42,10 +43,12 @@ $(OUTPUT_DIR)/%.o: $(SRC_DIR)/%.c ./Makefile
 
 clean:
 		$(RM) -r $(OUTPUT_DIR)
+		$(MAKE) -C ./Libft clean
 
 
-fclean:
-		$(MAKE) clean
+fclean: clean
+		$(MAKE) -C ./minilibx clean
+		$(MAKE) -C ./Libft fclean
 		$(RM) -f $(NAME)
 
 

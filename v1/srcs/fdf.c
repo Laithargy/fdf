@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:26:56 by mzhu              #+#    #+#             */
-/*   Updated: 2019/12/10 23:12:19 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/01/16 06:04:48 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int main(int ac, char **av)
 	void *mlx;
 	void *window;
 	int pixel;
-	int tamer;
 	int		fd;
 	int		*lines;
 	int		**tab;
