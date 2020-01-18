@@ -1,6 +1,11 @@
 #ifndef FDF_H
 # define FDF_H
-# define ERROR 3
+# define ERROR -1
+# define OK 1
+# define NAME "fdf_proj"
+# define HH 1080
+# define WW 1920
+# define SPACE 250
 
 #include "./Libft/libft.h"
 #include <mlx.h>
@@ -9,9 +14,10 @@
 #include <math.h>
 
 typedef struct		s_tab {
-    int     **tab; //map
-    int     height; //nb line
-    int     width; //size line
+    int		**tab; //map
+    int		height; //nb line
+    int		width; //size line
+	t_mlx	*draw;
 }					t_tab;
 
 typedef	struct	s_img
@@ -23,15 +29,16 @@ typedef	struct	s_img
 
 typedef struct		s_mlx
 {
-	void	*mlx_ptr; //mlx_init
-	void	*mlx_window; //mlx_window
+	void	*ptr; //mlx_init
+	void	*window; //mlx_window
 }					t_mlx;
 
-int			**parser(int fd, int nb_lines, int size_line);
-int			*nb_line(int fd);
-int			*split_line(char *str, int c, int size_line);
-int			*check_first(int fd);
-int			valid_line(char *str);
-void line(int x,int y,int x2, int y2, void *window, void *mlx);
+void			*check_first(int fd, int *size_line, int *nb_line);
+int				valid_line(char *str);
+int				check_error(char *argv, t_tab *map);
+void			initial_mlx(t_mlx *ptr);
+int				**parser(int fd, int nb_lines, int size_line);
+int				fdf(const char *argv);
+int				*split_line(char *str, int c, int size_line);
 
 #endif

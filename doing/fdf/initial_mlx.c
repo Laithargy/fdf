@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   initial_mlx.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/16 06:22:40 by mzhu              #+#    #+#             */
-/*   Updated: 2020/01/16 06:40:42 by mzhu             ###   ########.fr       */
+/*   Created: 2020/01/18 03:20:37 by mzhu              #+#    #+#             */
+/*   Updated: 2020/01/18 04:47:57 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
-int			initialization(const char *av, t_tab *map)
+void		initial_mlx(t_mlx *ptr)
 {
-	if (!((fd = open(argv, O_RDONLY))))
-		return (0);
-	check_first(fd, map->width, map->height);
-	if (lines[0] == 0 && lines[1] == 0)
-		return (ERROR);
-	close(fd);
-	if (!((fd = open(argv, O_RDONLY))))
-		return 0;
+	ptr->ptr = mlx_init();
+	ptr->window = mlx_new_window(ptr->ptr, HH, WW, NAME);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nb_line.c                                          :+:      :+:    :+:   */
+/*   first_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 17:19:21 by mzhu              #+#    #+#             */
-/*   Updated: 2020/01/16 06:35:42 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/01/18 03:16:01 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void			*check_first(int fd, int *size_line, int *nb_line)
 		(nb_chr < (cmp = ft_count_word(line, ' '))) ? nb_chr = cmp : 0 ;
 		if (valid_line(line) == 1)
 		{
-			tab[0] = 0;
-			tab[1] = 0;
+			&nb_line = 0;
+			&size_line = 0;
 			break;
 		}
 		&nb_line = lines;
