@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 17:19:21 by mzhu              #+#    #+#             */
-/*   Updated: 2020/01/18 03:16:01 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/01/20 09:27:22 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int			valid_line(char *str)
 	return (0);
 }
 
-void			*check_first(int fd, int *size_line, int *nb_line)
+void			check_first(int fd, int *size_line, int *nb_line)
 {
 	int		lines;
 	int		nb_chr;
@@ -38,19 +38,17 @@ void			*check_first(int fd, int *size_line, int *nb_line)
 	nb_chr = 0;
 	cmp = 0;
 	line = ft_strnew(1);
-	if (!(tab = (int*)malloc(sizeof(int) * 2)))
-		return (NULL);
 	while (get_next_line(fd, &line) == 1)
 	{
 		(nb_chr < (cmp = ft_count_word(line, ' '))) ? nb_chr = cmp : 0 ;
 		if (valid_line(line) == 1)
 		{
-			&nb_line = 0;
-			&size_line = 0;
+			*nb_line = 0;
+			*size_line = 0;
 			break;
 		}
-		&nb_line = lines;
-		&size_line = nb_chr;
+		*nb_line = lines;
+		*size_line = nb_chr;
 		lines++;
 		free(line);
 	}

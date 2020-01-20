@@ -13,13 +13,6 @@
 #include <stdio.h>
 #include <math.h>
 
-typedef struct		s_tab {
-    int		**tab; //map
-    int		height; //nb line
-    int		width; //size line
-	t_mlx	*draw;
-}					t_tab;
-
 typedef	struct	s_img
 {
 	int		bpp; //bytes per pixel
@@ -33,12 +26,20 @@ typedef struct		s_mlx
 	void	*window; //mlx_window
 }					t_mlx;
 
-void			*check_first(int fd, int *size_line, int *nb_line);
+typedef struct		s_tab {
+    int		**tab; //map
+    int		height; //nb line
+    int		width; //size line
+	t_mlx	*draw;
+}					t_tab;
+
+void			check_first(int fd, int *size_line, int *nb_line);
 int				valid_line(char *str);
 int				check_error(char *argv, t_tab *map);
 void			initial_mlx(t_mlx *ptr);
 int				**parser(int fd, int nb_lines, int size_line);
-int				fdf(const char *argv);
+int				fdf(char *argv);
 int				*split_line(char *str, int c, int size_line);
+int				draw_map(t_tab *map, t_mlx *ptr, t_img *img);
 
 #endif
