@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initial_mlx.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/18 03:20:37 by mzhu              #+#    #+#             */
-/*   Updated: 2020/01/27 19:32:55 by mzhu             ###   ########.fr       */
+/*   Created: 2020/01/27 12:22:12 by mzhu              #+#    #+#             */
+/*   Updated: 2020/01/27 12:28:07 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fdf.h>
-
-void initial_mlx(t_mlx *ptr)
+int         main(int ac, char **av)
 {
-	ptr->ptr = mlx_init();
-	ptr->window = mlx_new_window(ptr->ptr, HH, WW, NAME);
+    if (ac == 2)
+    {
+        if (fdf(av[1]) == ERROR)
+        {
+            write(1, "error\n", 6);
+            return (0);
+        }
+    }
+    else
+        write(1, "usage : .fdf 'yourfilename'", 27);
+    return (0);
 }

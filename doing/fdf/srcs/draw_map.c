@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/18 04:49:00 by mzhu              #+#    #+#             */
-/*   Updated: 2020/01/20 09:27:22 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/01/20 10:43:09 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 // 			i++;
 // 		}
 // 		mlx_loop(mlx);
+
+//using mlx_image ??
+//isometric
 
 int		draw_map(t_tab *map, t_mlx *ptr, t_img *img)
 {
