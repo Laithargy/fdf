@@ -6,11 +6,11 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 18:53:48 by mzhu              #+#    #+#             */
-/*   Updated: 2020/01/27 19:35:17 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/01/30 15:07:11 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
+#include <mlx->h>
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -38,8 +38,8 @@ void algo(int x1, int y1, int x2, int y2, void *win_ptr, void *win)
 			i++;
 			x1 += xin;
 			ex -= dy;
-			if (ex < 0)
-				y1 += yin;
+			(ex < 0) ? y1 += yin : 0;
+			(ex < 0) ? ex += dx : 0;
 		}
 	}
 	if (Dx < Dy)
@@ -50,11 +50,24 @@ void algo(int x1, int y1, int x2, int y2, void *win_ptr, void *win)
 			i++;
 			y1 += yin;
 			ey -= dx;
-			if (ey < 0)
-			{
-				x1 += xin;
-				ey += dy;
-			}
+			(ey < 0)  ? x1 += xin : 0;
+			(ey < 0) ? ey += dy : 0 ;
 		}
 	}
+}
+
+int			main(void)
+{
+	void *ptr;
+	void *window;
+	int  x = 10;
+	int  y = 10;
+	int x2 = 50;
+	int y2 = 50;
+	
+	ptr = mlx_init();
+	window = mlx_new_window(ptr, 1000, 1000, "cc");
+	algo(x+250, y+250, x2+250, y2+250, ptr, window);
+	mlx_loop(ptr);
+	return 0;
 }

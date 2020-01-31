@@ -6,20 +6,20 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 16:16:33 by mzhu              #+#    #+#             */
-/*   Updated: 2020/01/18 02:18:51 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/01/28 13:05:46 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int			*split_line(char *str, int c, int size_line)
+int				*split_line(char *str, int c, int size_line)
 {
 	int			*tab;
 	int			ind;
 	int			result;
 	int			nb_int;
 	int			pos;
-	
+
 	pos = 0;
 	ind = 0;
 	result = 0;
@@ -31,10 +31,7 @@ int			*split_line(char *str, int c, int size_line)
 		while (str[ind] == c && str[ind])
 			ind++;
 		if (str[ind] != c && str[ind])
-		{
-			tab[pos] = ft_atoi(str + ind);
-			pos++;
-		}
+			tab[pos++] = ft_atoi(str + ind);
 		while (str[ind] != c && str[ind])
 			ind++;
 	}

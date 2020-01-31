@@ -6,11 +6,11 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/18 04:49:00 by mzhu              #+#    #+#             */
-/*   Updated: 2020/01/20 10:43:09 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/01/30 15:08:13 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fdf.h>
+#include "../fdf.h"
 // x = /*f == lines[1] ? f + tab[i][f] : */f +  tab[i][f];
 // y = /*i == lines[0] ? i - tab[i][f]:*/ i - tab[i][f]; 
 // int x2 = f == lines[1] ? f + tab[i][f - 1] : f + tab[i][f + 1];
@@ -28,10 +28,21 @@
 //using mlx_image ??
 //isometric
 
-int		draw_map(t_tab *map, t_mlx *ptr, t_img *img)
+int		draw_map(t_tab *map)
 {
 	int			x;
 	int			y;
 	int			x2;
 	int			y2;
+	
+	x = 1;
+	y = 1;
+	x = 10;
+	y = 10;
+	x2 = 20;
+	y2 = 20;
+	bresenham(x, y, x2, y2, map);
+	mlx_pixel_put(map->mlx.ptr, map->mlx.window, 10, 10, 0xFFFFFF);
+	mlx_loop(map->mlx.window);
+	return 0;
 }
