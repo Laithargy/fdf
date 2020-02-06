@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 17:19:21 by mzhu              #+#    #+#             */
-/*   Updated: 2020/01/28 13:10:40 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/06 18:32:34 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void			check_first(int fd, int *size_line, int *nb_line)
 			*size_line = 0;
 			break ;
 		}
+		lines++;
 		*nb_line = lines;
 		*size_line = nb_chr;
-		lines++;
 		free(line);
 	}
 }

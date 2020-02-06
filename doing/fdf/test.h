@@ -1,5 +1,5 @@
-#ifndef FDF_H
-#define FDF_H
+#ifndef TEST_H
+#define TEST_H
 
 #define ERROR -1
 #define OK 1
@@ -48,21 +48,7 @@ typedef struct		s_tab
 	int			x;
 	int			y;
 	t_mlx		mlx;
-	t_point		point;
+	t_point		*point;
 }					t_tab;
-
-
-
-void 				check_first(int fd, int *size_line, int *nb_line);
-int					valid_line(char *str);
-int					check_error(char *argv, t_tab *map);
-void				initial_mlx(t_tab *map);
-int					**parser(int fd, int nb_lines, int size_line);
-int					fdf(char *argv);
-int					*split_line(char *str, int c, int size_line);
-int					draw_map(t_tab *map);
-void				init_var(int x1, int y1, int x2, int y2, t_tab *map);
-void				calc(int x1, int y1, t_tab *map);
-void				bresenham(int x1, int y1, int x2, int y2, t_tab *map);
 
 #endif

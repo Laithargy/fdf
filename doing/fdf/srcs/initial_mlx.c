@@ -12,14 +12,41 @@
 
 #include <fdf.h>
 
-int			initial_mlx(t_tab *map)
+void		initial_mlx(t_tab *map)
 {
-
-	if ((map->mlx.ptr = mlx_init()) == NULL)
-		return (-1);
-	if ((map->mlx.window = mlx_new_window(map->mlx.ptr, 640, 480, "Hello world")) == NULL)
-		return (-1);
-	mlx_pixel_put(map->mlx.ptr, map->mlx.window, 10, 10, 0xFFFFFF);
+	int i = 0;
+	int j = 0;
+	int i2 = i + 1;
+	int j2 = j + 1;
+	// int x = map->tab[i][j] + i;
+	// int y = map->tab[i][j] - j;
+	// int x2 = map->tab[i2][j] + i2;
+	// int y2 = map->tab[i][j2] - j2;
+	int spacei = 30;
+	int spacej = 30;
+	map->mlx.ptr = mlx_init();
+	map->mlx.window = mlx_new_window(map->mlx.ptr, WW, HH, "cc");
+	printf("width : %d\nheight : %d\n", map->width, map->height);
+	while (j2 < map->height)
+	{
+		i = 0;
+		i2 = i +1;
+		spacej = 30;
+		while (i2 < map->width)
+		{
+			// int x = map->tab[j][i] + i;
+			// int y = map->tab[j][i] - j;
+			// int x2 = map->tab[j][i2] + i2;
+			// int y2 = map->tab[j2][i] - j2;
+			bresenham( 10, 10, 50, 50, map);
+			// printf("%d|\n%d|\n", map->tab[i][j],map->tab[i2][j2]);
+			i++;
+			i2 = i + 1;
+			spacej +=30;
+		}
+		j++;
+		j2 = j + 1;
+		spacei += 35;
+	}
 	mlx_loop(map->mlx.ptr);
-	return (0);
 }

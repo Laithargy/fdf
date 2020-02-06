@@ -6,11 +6,11 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 18:53:48 by mzhu              #+#    #+#             */
-/*   Updated: 2020/01/30 15:07:11 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/04 03:44:51 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx->h>
+#include <mlx.h>
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
