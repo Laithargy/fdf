@@ -34,19 +34,20 @@ void		initial_mlx(t_tab *map)
 		spacej = 30;
 		while (i2 < map->width)
 		{
-			// int x = map->tab[j][i] + i;
-			// int y = map->tab[j][i] - j;
-			// int x2 = map->tab[j][i2] + i2;
-			// int y2 = map->tab[j2][i] - j2;
-			bresenham( 10, 10, 50, 50, map);
+			int x = map->tab[j][i] + i;
+			int y = map->tab[j][i] - j;
+			int x2 = map->tab[j2][i2] + i2;
+			int y2 = map->tab[j2][i2] - j2;
+			bresenham( x + spacei +30, y + spacej + 30 , x2 + spacei, y2+ spacej, map);
 			// printf("%d|\n%d|\n", map->tab[i][j],map->tab[i2][j2]);
+		//	bresenham( x  + spacei, x2 + spacej, y + spacei, y2 + spacej, map);
 			i++;
 			i2 = i + 1;
 			spacej +=30;
 		}
 		j++;
 		j2 = j + 1;
-		spacei += 35;
+		spacei += 30;
 	}
 	mlx_loop(map->mlx.ptr);
 }
