@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 18:40:34 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/06 18:04:17 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/07 22:37:43 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,8 @@ void			calc(int x1, int y1, t_tab *map)
 	}
 }
 
-void		bresenham(int x1, int y1, int x2, int y2, t_tab *map)
+void		bresenham(t_pos a, t_pos b, t_tab *map)
 {
-	int		i;
-	
-	i = -1;
-	init_var(x1, y1, x2, y2, map);
-	calc(x1, y1, map);
+	init_var(a.x, a.y, b.x, b.y, map);
+	calc(a.x, b.x, map);
 }

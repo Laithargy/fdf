@@ -15,6 +15,12 @@
 #include <math.h>
 #include <unistd.h>
 
+typedef struct		s_pos
+{
+	int		x;
+	int		y;
+}					t_pos;
+
 typedef struct		s_img
 {
 	int bpp;	//bytes per pixel
@@ -45,8 +51,7 @@ typedef struct		s_tab
 	int			**tab;  //map
 	int			height; //nb line
 	int			width;  //size line
-	int			x;
-	int			y;
+	float		scale;
 	t_mlx		mlx;
 	t_point		point;
 }					t_tab;
@@ -63,6 +68,6 @@ int					*split_line(char *str, int c, int size_line);
 int					draw_map(t_tab *map);
 void				init_var(int x1, int y1, int x2, int y2, t_tab *map);
 void				calc(int x1, int y1, t_tab *map);
-void				bresenham(int x1, int y1, int x2, int y2, t_tab *map);
+void				bresenham(t_pos a, t_pos b, t_tab *map);
 
 #endif
