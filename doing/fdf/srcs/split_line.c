@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include <fdf.h>
 
 int				*split_line(char *str, int c, int size_line)
 {

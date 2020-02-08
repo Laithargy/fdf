@@ -6,22 +6,22 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 18:40:34 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/07 22:37:43 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/08 01:13:04 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
-void			init_var(int x1, int y1, int x2, int y2, t_tab *map)
+void			init_var(t_pos a, t_pos b, t_tab *map)
 {
-	map->point.ex = abs(x2 - x1);
-	map->point.ey = abs(y2 - y1);
+	map->point.ex = abs(b.x - a.x);
+	map->point.ey = abs(b.y - a.y);
 	map->point.dx = 2 * map->point.ex;
 	map->point.dy = 2 * map->point.ey;
 	map->point.dex = map->point.ex;
 	map->point.dey = map->point.ey;
-	map->point.xin = x1 > x2 ? -1 : 1;
-	map->point.yin = y1 > y2 ? -1 : 1;
+	map->point.xin = a.x > b.x ? -1 : 1;
+	map->point.yin = a.y > b.y ? -1 : 1;
 }
 
 void			calc(int x1, int y1, t_tab *map)
@@ -55,6 +55,6 @@ void			calc(int x1, int y1, t_tab *map)
 
 void		bresenham(t_pos a, t_pos b, t_tab *map)
 {
-	init_var(a.x, a.y, b.x, b.y, map);
+	init_var(a, b, map);
 	calc(a.x, b.x, map);
 }

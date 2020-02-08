@@ -14,6 +14,8 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
+#include "test.h"
 
 void algo(int x1, int y1, int x2, int y2, void *win_ptr, void *win)
 {
@@ -55,6 +57,12 @@ void algo(int x1, int y1, int x2, int y2, void *win_ptr, void *win)
 		}
 	}
 }
+=
+
+int			deal_key(int keycode, int x, int y, void *param)
+{
+	write(1,"c", 1);
+}
 
 int			main(void)
 {
@@ -67,6 +75,7 @@ int			main(void)
 	
 	ptr = mlx_init();
 	window = mlx_new_window(ptr, 1000, 1000, "cc");
+	mlx_key_hook(window, 5, deal_key, (void*)0);
 	algo(x+250, y+250, x2+250, y2+250, ptr, window);
 	mlx_loop(ptr);
 	return 0;

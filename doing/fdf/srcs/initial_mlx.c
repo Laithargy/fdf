@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/18 03:20:37 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/07 22:42:07 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/08 00:11:32 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void		initial_mlx(t_tab *map)
 	printf("width : %d\nheight : %d\n", map->width, map->height);
 	i = 0;
 	map->scale = 10.0f;
+	mlx_hook(map->, int x_event, int x_mask, int (*funct)(), void *param);
 	while (i < map->height)
 	{
 		j = 0;

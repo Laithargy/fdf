@@ -1,8 +1,0 @@
-{
-	"files.associations": {
-		"complex": "c",
-		"test.h": "c",
-		"__locale": "c",
-		"locale": "c"
-	}
-}

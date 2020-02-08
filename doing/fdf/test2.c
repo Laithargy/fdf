@@ -123,11 +123,56 @@ void		bresenham(int x1, int y1, int x2, int y2, t_tab *map)
 // 	mlx_loop(map->mlx.ptr);
 // }
 
+int			deal_key(int button,int x, int y, void *param)
+{
+	t_tab 	*ptr;
+	ptr = (t_tab *)param;
+	write(1,"c", 1);
+	//ptr->mlx.press = 1;
+	if (button == 1){
+		ptr->press = 1;
+		ptr->x = x;
+		ptr->y = y;
+		write(1,"c", 1);
+	}
+	return 0;
+}
+
+int mouse_release(int button, int x, int y, void *param)
+{
+	t_tab 	*ptr;
+	t_tab	prt;
+	ptr = (t_tab *)param;
+	write(1,"c", 1);
+	if(ptr->press == 1 )
+	{
+		mlx_pixel_put(ptr->mlx.ptr, ptr->mlx.window, x, y, 0xFFFFFF);
+		prt.x = x;
+		prt.y = y;
+		bresenham(ptr->x, ptr->y, prt.x, prt.y, ptr);
+	}
+	return 0;
+}
+int mouse_move(int x, int y, void *param)
+{
+	t_tab 	*ptr;
+	ptr = (t_tab *)param;
+	//if (ptr->mlx.press == 1)
+	//{
+		bresenham(x, y, x, x, ptr);
+		// mlx_pixel_put(ptr->mlx.ptr, ptr->mlx.window, x, y, 0xFFFFFF);
+//	}
+	return 0;
+}
+ 
 void		lol(t_tab *map)
 {
 	map->mlx.ptr = mlx_init();
 	map->mlx.window = mlx_new_window(map->mlx.ptr, 1000, 1000, "cc");
-	bresenham(10+250, 110+250, 50+250, 50+250, map);
+	mlx_hook(map->mlx.window, 4, 0, deal_key, map);
+	mlx_hook(map->mlx.window, 5, 0, mouse_release, map);
+	// mlx_hook(map->mlx.window, 6, 0, mouse_move, map);
+	//bresenham(10+250, 110+250, 50+250, 50+250, map);
 	mlx_loop(map->mlx.ptr);
 }
 

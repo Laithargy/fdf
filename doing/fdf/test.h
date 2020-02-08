@@ -46,6 +46,7 @@ typedef struct		s_tab
 	int			height; //nb line
 	int			width;  //size line
 	int			x;
+	int			press;
 	int			y;
 	t_mlx		mlx;
 	t_point		*point;

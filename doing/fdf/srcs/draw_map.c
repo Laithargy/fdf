@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include <fdf.h>
 // x = /*f == lines[1] ? f + tab[i][f] : */f +  tab[i][f];
 // y = /*i == lines[0] ? i - tab[i][f]:*/ i - tab[i][f]; 
 // int x2 = f == lines[1] ? f + tab[i][f - 1] : f + tab[i][f + 1];
