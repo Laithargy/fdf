@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 18:40:34 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/08 01:13:04 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/09 00:54:23 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void			init_var(t_pos a, t_pos b, t_tab *map)
 
 void			calc(int x1, int y1, t_tab *map)
 {
-	int		i;
-	
+	int			i;
+
 	i = -1;
 	if (map->point.dex >= map->point.dey)
 	{
@@ -53,7 +53,7 @@ void			calc(int x1, int y1, t_tab *map)
 	}
 }
 
-void		bresenham(t_pos a, t_pos b, t_tab *map)
+void			bresenham(t_pos a, t_pos b, t_tab *map)
 {
 	init_var(a, b, map);
 	calc(a.x, b.x, map);
