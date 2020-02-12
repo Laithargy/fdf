@@ -36,14 +36,12 @@ typedef struct		s_mlx
 
 typedef struct s_point
 {
-	int			ex;
-	int			ey;
 	int			dx;
 	int			dy;
-	int			dex;
-	int			dey;
-	int			xin;
-	int			yin;
+	int			sx;
+	int			sy;
+	int			err;
+	int			e2;
 }					t_point;
 
 typedef struct		s_tab
@@ -67,7 +65,9 @@ int					fdf(char *argv);
 int					*split_line(char *str, int c, int size_line);
 int					draw_map(t_tab *map);
 void				init_var(t_pos a, t_pos b, t_tab *map);
-void				calc(int x1, int y1, t_tab *map);
+void				draw(t_tab *map);
 void				bresenham(t_pos a, t_pos b, t_tab *map);
+int					event_close(void *param);
+int					key_press(int keycode, void *param);
 
 #endif

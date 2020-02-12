@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 00:25:27 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/12 07:23:56 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/12 08:09:50 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void			draw(t_tab *map)
 		a = (t_pos){(j * map->scale) + 100, (i * map->scale) + 100}; // [0, 0]
 		while (j < (map->width - 1))
 		{
-			b = (t_pos){((j + 1) * map->scale )+ 100, (i * map->scale) + 100}; // [0,1]
+			b = (t_pos){((j + 1) * map->scale)+ 100, (i * map->scale) + 100}; // [0,1]
 			c = (t_pos){(j * map->scale) + 100, ((i + 1) * map->scale) + 100}; // [1,0]
 			d = (t_pos){(j + 1) * map->scale + 100, (i + 1) * map->scale + 100};// [1,1]
 			init_var(a, b, map); //horizontal
