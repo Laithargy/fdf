@@ -64,7 +64,6 @@ int					**parser(int fd, int nb_lines, int size_line);
 int					fdf(char *argv);
 int					*split_line(char *str, int c, int size_line);
 void				draw(t_tab *map);
-void				calc(int x1, int y1, t_tab *map);
 void				bresenham(t_pos a, t_pos b, t_tab *map);
 void				init_var(t_pos a, t_pos b, t_tab *map);
 
