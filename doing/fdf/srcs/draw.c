@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 00:25:27 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/09 05:06:12 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/12 05:43:35 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,28 @@ void			draw(t_tab *map)
 	while (i < map->height)
 	{
 		j = 0;
-		a = (t_pos){j * map->scale + 20, i * map->scale + 20};
+		a = (t_pos){(i * map->scale) + 20, (j * map->scale) + 20};
 		while (j < map->width)
 		{
-		//	printf("%d\n", i);
-			b = (t_pos){j * map->scale + 20, (i + 1) * map->scale + 20}; // [0,1]
-			c = (t_pos){(j + 1) * map->scale + 20, i * map->scale + 20}; // [1,0]
-			d = (t_pos){(j + 1)* map->scale + 20, (0 + 1) * map->scale + 20};// [1,1]
-			// bresenham(a, b, map);
-			// bresenham(b, c, map);
-			// bresenham(b, d, map);
+			b = (t_pos){(i * map->scale )+ 20, ((j + 1) * map->scale) + 20}; // [0,1]
+			c = (t_pos){((i + 1) * map->scale) + 20, (j * map->scale) + 20}; // [1,0]
+			d = (t_pos){(i + 1)* map->scale + 20, (j + 1) * map->scale + 20};// [1,1]
+			init_var(a, b, map);
+			init_var(b, d, map);
 			j++;
 		}
 		i++;
 	}
 }
+
+
+// x = i + z;
+
+// tablo de struc de pt
+// iter sur le tableau de struct
+// tant que ptr sur struct  x & y & z rempli 
+
+// tracer des vecteur entre tous les points
+// applique les transfos
+// prends le tableau et passer a la ft des events keyboard
+// bouge le tableau

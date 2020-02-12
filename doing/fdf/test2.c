@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 02:41:30 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/06 18:07:39 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/12 01:26:44 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,10 +167,22 @@ int mouse_move(int x, int y, void *param)
  
 void		lol(t_tab *map)
 {
+	int i = 0;
+	int j = 0;
 	map->mlx.ptr = mlx_init();
 	map->mlx.window = mlx_new_window(map->mlx.ptr, 1000, 1000, "cc");
-	mlx_hook(map->mlx.window, 4, 0, deal_key, map);
-	mlx_hook(map->mlx.window, 5, 0, mouse_release, map);
+	// mlx_hook(map->mlx.window, 4, 0, deal_key, map);
+	// mlx_hook(map->mlx.window, 5, 0, mouse_release, map);
+	while (i < map->height)
+	{
+		j = 0;
+		a = (t_pos){j * map->scale + 20, i * map->scale + 20};
+		while (j < map->width)
+		{
+		//	printf("%d\n", i);
+			b = (t_pos){j * map->scale + 20, (i + 1) * map->scale + 20}; // [0,1]
+			c = (t_pos){(j + 1) * map->scale + 20, i * map->scale + 20}; // [1,0]
+			d = (t_pos){(j + 1)* map->scale + 20, (0 + 1) * map->scale + 20};// [1,1]
 	// mlx_hook(map->mlx.window, 6, 0, mouse_move, map);
 	//bresenham(10+250, 110+250, 50+250, 50+250, map);
 	mlx_loop(map->mlx.ptr);
