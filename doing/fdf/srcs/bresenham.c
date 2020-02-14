@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 07:23:02 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/12 08:09:35 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/14 20:53:10 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,27 @@ void		bresenham(t_pos a, t_pos b, t_tab *map)
 		mlx_pixel_put(map->mlx.ptr, map->mlx.window, a.x, a.y, 0xFFFFFF);
 		if (a.x == b.x && a.y == b.y)
 			break ;
-		map->point.e2 = map->point.err;
-		if (map->point.e2 > -map->point.dx)
+		map->algo.e2 = map->algo.err;
+		if (map->algo.e2 > -map->algo.dx)
 		{
-			map->point.err -= map->point.dy;
-			a.x += map->point.sx;
+			map->algo.err -= map->algo.dy;
+			a.x += map->algo.sx;
 		}
-		if (map->point.e2 < map->point.dy)
+		if (map->algo.e2 < map->algo.dy)
 		{
-			map->point.err += map->point.dx;
-			a.y += map->point.sy;
+			map->algo.err += map->algo.dx;
+			a.y += map->algo.sy;
 		}
 	}
 }
 
 void		init_var(t_pos a, t_pos b, t_tab *map)
 {
-	map->point.dx = abs(b.x - a.x);
-	map->point.dy = abs(b.y - a.y);
-	map->point.sx = a.x < b.x ? 1 : -1;
-	map->point.sy = a.y < b.y ? 1 : -1;
-	map->point.err = (map->point.dx > map->point.dy ?
-	map->point.dx : -map->point.dy) / 2;
+	map->algo.dx = abs(b.x - a.x);
+	map->algo.dy = abs(b.y - a.y);
+	map->algo.sx = a.x < b.x ? 1 : -1;
+	map->algo.sy = a.y < b.y ? 1 : -1;
+	map->algo.err = (map->algo.dx > map->algo.dy ?
+	map->algo.dx : -map->algo.dy) / 2;
 	bresenham(a, b, map);
 }

@@ -21,6 +21,13 @@ typedef struct		s_pos
 	int		y;
 }					t_pos;
 
+typedef struct		s_point
+{
+	int		x;
+	int		y;
+	int		z;
+}					t_point;
+
 typedef struct		s_img
 {
 	int bpp;	//bytes per pixel
@@ -34,7 +41,7 @@ typedef struct		s_mlx
 	void		*window; //mlx_window
 }					t_mlx;
 
-typedef struct s_point
+typedef struct		s_algo
 {
 	int			dx;
 	int			dy;
@@ -42,7 +49,7 @@ typedef struct s_point
 	int			sy;
 	int			err;
 	int			e2;
-}					t_point;
+}					t_algo;
 
 typedef struct		s_tab
 {

@@ -6,7 +6,7 @@
 #    By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/09 22:41:51 by mzhu              #+#    #+#              #
-#    Updated: 2020/01/30 14:51:04 by mzhu             ###   ########.fr        #
+#    Updated: 2020/02/14 22:14:49 by mzhu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ clean:
 fclean: clean
 		$(MAKE) -C ./minilibx clean
 		$(MAKE) -C ./Libft fclean
-		$(RM) -f $(NAME)
+		$(RM) $(NAME)
 
 
 re:
