@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 06:22:40 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/12 08:09:51 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/14 01:19:54 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int			fdf(char *argv)
 
 	end = 0;
 	map = (t_tab*)malloc(sizeof(t_tab));
-	((cmp = check_error(argv, *&map)) == ERROR) ? end = ERROR : 0;
-	(fd = open(argv, O_RDONLY)) == ERROR ? end = ERROR : 0;
+	cmp = check_error(argv, *&map);
+	fd = open(argv, O_RDONLY);
 	map->tab = parser(fd, map->height, map->width);
 	initial_mlx(map);
-	return (0);
+	return (!cmp || !fd);
 }
