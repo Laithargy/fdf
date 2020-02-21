@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mzhu <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 18:36:50 by mzhu              #+#    #+#             */
-/*   Updated: 2019/11/07 04:31:29 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/20 14:38:06 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char		*ft_strtrim(char const *s)
+char			*ft_strtrim(char const *s)
 {
 	char		*tp;
 	size_t		start;

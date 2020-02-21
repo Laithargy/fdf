@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mzhu <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:00:24 by mzhu              #+#    #+#             */
-/*   Updated: 2019/08/22 17:04:12 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/20 14:39:14 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-static char		*ft_read_line(char **stock, int fd)
+static char			*ft_read_line(char **stock, int fd)
 {
-	char	buf[BUFF_SIZE + 1];
-	int		rd;
+	char			buf[BUFF_SIZE + 1];
+	int				rd;
 
 	while ((rd = read(fd, buf, BUFF_SIZE)) > 0)
 	{
@@ -30,7 +30,7 @@ static char		*ft_read_line(char **stock, int fd)
 	return (*stock);
 }
 
-int		get_next_line(const int fd, char **line)
+int					get_next_line(const int fd, char **line)
 {
 	static char		*stock[1024];
 	char			*tmp;
@@ -47,5 +47,5 @@ int		get_next_line(const int fd, char **line)
 	tmp = stock[fd];
 	stock[fd] = (ft_strchr(stock[fd], '\n'))
 		? ft_strsub(stock[fd], i + 1, ft_strlen(stock[fd])) : ft_strdup("");
-	return((stock[fd][i] == '\0' && i == 0 && tmp[0] == '\0') ? 0 : 1);
+	return ((stock[fd][i] == '\0' && i == 0 && tmp[0] == '\0') ? 0 : 1);
 }

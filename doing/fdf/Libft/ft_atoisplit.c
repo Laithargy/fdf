@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 23:20:00 by mzhu              #+#    #+#             */
-/*   Updated: 2019/12/02 15:25:11 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/20 14:37:44 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int			*ft_atoisplit(const char *str, int c)
 	int			result;
 	int			nb_int;
 	int			pos;
-	
+
 	pos = 0;
 	ind = 0;
 	result = 0;

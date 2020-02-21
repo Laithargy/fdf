@@ -17,51 +17,51 @@
 
 typedef struct		s_pos
 {
-	int		x;
-	int		y;
+	int				x;
+	int				y;
 }					t_pos;
 
 typedef struct		s_point
 {
-	int		x;
-	int		y;
-	int		z;
+	int				x;
+	int				y;
+	int				z;
 }					t_point;
 
 typedef struct		s_img
 {
-	int bpp;	//bytes per pixel
-	int size_l; //size line * 4
-	int endian; // 1 or 0
+	int				bpp;	//bytes per pixel
+	int				size_l; //size line * 4
+	int				endian; // 1 or 0
 }					t_img;
 
 typedef struct		s_mlx
 {
-	void		*ptr;	//mlx_init
-	void		*window; //mlx_window
+	void			*ptr;	//mlx_init
+	void			*window; //mlx_window
 }					t_mlx;
 
 typedef struct		s_algo
 {
-	int			dx;
-	int			dy;
-	int			sx;
-	int			sy;
-	int			err;
-	int			e2;
+	int				dx;
+	int				dy;
+	int				sx;
+	int				sy;
+	int				err;
+	int				e2;
 }					t_algo;
 
 typedef struct		s_tab
 {
-	int			**tab;  //map
-	int			height; //nb line
-	int			width;  //size line
-	float		scale;
-	t_mlx		mlx;
-	t_point		point;
+	int				**tab;  //map
+	int				height; //nb line
+	int				width;  //size line
+	size_t			f_size;
+	float			scale;
+	t_point			*plan;
+	t_mlx			mlx;
+	t_algo			algo;
 }					t_tab;
-
-
 
 void 				check_first(int fd, int *size_line, int *nb_line);
 int					valid_line(char *str);
@@ -71,10 +71,17 @@ int					**parser(int fd, int nb_lines, int size_line);
 int					fdf(char *argv);
 int					*split_line(char *str, int c, int size_line);
 int					draw_map(t_tab *map);
-void				init_var(t_pos a, t_pos b, t_tab *map);
+void				map_construct(t_tab *map);
+// void				init_var(t_pos a, t_pos b, t_tab *map);
+// void				bresenham(t_pos a, t_pos b, t_tab *map);
 void				draw(t_tab *map);
-void				bresenham(t_pos a, t_pos b, t_tab *map);
-int					event_close(void *param);
 int					key_press(int keycode, void *param);
+void		isometric(t_point *a, t_point *b, t_point *c);
+void		init_var(t_point a, t_point b, t_tab *map);
+void		bresenham(t_point a, t_point b, t_tab *map);
+
+// void				rotX(t_tab *map);
+// void				rotY(t_tab *map);
+// void				rotZ(t_tab *map);
 
 #endif

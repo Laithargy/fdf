@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 06:22:40 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/14 01:19:54 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/21 19:35:21 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ int			fdf(char *argv)
 	cmp = check_error(argv, *&map);
 	fd = open(argv, O_RDONLY);
 	map->tab = parser(fd, map->height, map->width);
+	map->f_size = map->height * map->width;
+	if (!(map->plan = (t_point*)malloc(sizeof(t_point) * map->f_size + 1)))
+		printf("malloc du plan");
+	map_construct(map);
 	initial_mlx(map);
 	return (!cmp || !fd);
 }

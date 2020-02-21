@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_word.c                                    :+:      :+:    :+:   */
+/*   isometric.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/28 23:19:50 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/20 14:37:22 by mzhu             ###   ########.fr       */
+/*   Created: 2020/02/21 14:30:28 by mzhu              #+#    #+#             */
+/*   Updated: 2020/02/21 19:34:05 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <fdf.h>
 
-int			ft_count_word(char const *s, char c)
+void		isometric(t_point *a, t_point *b, t_point *c)
 {
-	size_t		i;
-	size_t		count;
+	t_point		p;
+	t_point		d;
+	t_point		t;
 
-	i = 0;
-	count = 0;
-	while (s[i])
-	{
-		while (s[i] == c && s[i])
-			i++;
-		if (s[i] != c && s[i])
-			count++;
-		while (s[i] != c && s[i])
-			i++;
-	}
-	return (count);
+	p = *a;
+	d = *b;
+	t = *c;
+	a->x = (p.x- p.y) * cos(0.523599);
+	a->y = (p.x + p.y) * sin(0.523599) - a->z;
+	b->x = (d.x - d.y) * cos(0.523599);
+	b->y = (d.x + d.y) * sin(0.523599) - b->z;
+	c->x = (t.x - t.y) * cos(0.523599);
+	c->y = (t.x + t.y) * sin(0.523599) - c->z;
 }
