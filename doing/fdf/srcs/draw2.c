@@ -6,11 +6,11 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 00:25:27 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/21 19:40:04 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/22 19:40:29 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fdf.h>
+#include  <fdf.h>
 
 // void			create_amap(t_tab *map)
 // {
@@ -18,13 +18,24 @@
 
 void			draw(t_tab *map)
 {
-	size_t i = 0;
-	while (i < map->f_size - 1)
+		// printf("ISO APPLIED");
+	size_t i;
+	i = 0;
+	// printf("ISO APPLIED");
+	//appliquer les isos une fois a tous les pts
+	while (i < map->f_size)
 	{
-		// mlx_pixel_put(map->mlx.ptr, map->mlx.window, 10, 10, 0xe31408);
-		isometric(&map->plan[i],&map->plan[i + 1],&map->plan[(i / map->height) + 1]);
+		isometric(&map->plan[i]);
+		printf("%zu| ", i);
+		i++;
+	}
+	i = 0;
+	while (i < map->f_size)
+	{
+		((i + map->width) < map->f_size) ? init_var(map->plan[i], map->plan[i + map->width], map) : 0;
+		(((i + 1) / map->width) < (size_t)map->width) ? 0 : init_var(map->plan[i], map->plan[i + 1], map);
 		init_var(map->plan[i], map->plan[i + 1], map);
-		init_var(map->plan[i], map->plan[(i / map->height) + 1], map);
+		//mlx_pixel_put(map->mlx.ptr, map->mlx.window, 10 + i, 10 + i, 0xe31408);
 		i++;
 	}
 	// t_point		check;

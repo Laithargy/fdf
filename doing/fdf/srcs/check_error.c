@@ -6,11 +6,11 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 06:19:15 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/14 21:19:23 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/22 16:21:22 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fdf.h>
+#include  <fdf.h>
 
 int				check_error(char *argv, t_tab *map)
 {

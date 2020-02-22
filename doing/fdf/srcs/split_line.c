@@ -6,11 +6,11 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 16:16:33 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/12 08:11:22 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/22 16:21:22 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fdf.h>
+#include  <fdf.h>
 
 int				*split_line(char *str, int c, int size_line)
 {

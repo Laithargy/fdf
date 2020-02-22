@@ -76,9 +76,9 @@ void				map_construct(t_tab *map);
 // void				bresenham(t_pos a, t_pos b, t_tab *map);
 void				draw(t_tab *map);
 int					key_press(int keycode, void *param);
-void		isometric(t_point *a, t_point *b, t_point *c);
-void		init_var(t_point a, t_point b, t_tab *map);
-void		bresenham(t_point a, t_point b, t_tab *map);
+void				isometric(t_point *a);
+void				init_var(t_point a, t_point b, t_tab *map);
+void				bresenham(t_point a, t_point b, t_tab *map);
 
 // void				rotX(t_tab *map);
 // void				rotY(t_tab *map);

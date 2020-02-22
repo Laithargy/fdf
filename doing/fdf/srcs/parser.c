@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 04:50:32 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/21 19:39:15 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/02/22 18:59:02 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,13 @@ void			map_construct(t_tab *map)
 	size_t		cmp;
 
 	cmp = map->height;
-	
 	i = 0;
 	while (i < map->f_size)
 	{
 		map->plan[i] = (t_point) {
-			.x = (i % map->width) * map->scale,
-			.y = (i / map->height) *  map->scale,
-			.z = map->tab[i % map->height][i / map->width] *  map->scale,
+			(i % map->width) * 20,
+			(i / map->width) * 20,
+			map->tab[i / map->width][i % map->width] * 20
 		};
 		i++;
 	}
