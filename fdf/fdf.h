@@ -23,9 +23,9 @@ typedef struct		s_pos
 
 typedef struct		s_point
 {
-	int				x;
-	int				y;
-	int				z;
+	long double		x;
+	long double		y;
+	long double		z;
 }					t_point;
 
 typedef struct		s_img
@@ -44,6 +44,10 @@ typedef struct		s_mlx
 
 typedef struct		s_algo
 {
+	int				ax;
+	int				ay;
+	int				bx;
+	int				by;
 	int				dx;
 	int				dy;
 	int				sx;
@@ -77,7 +81,7 @@ void				draw(t_tab *map);
 int					key_press(int keycode, void *param);
 void				isometric(t_point *a);
 void				init_var(t_point a, t_point b, t_tab *map);
-void				bresenham(t_point a, t_point b, t_tab *map);
+void				bresenham(t_algo algo, t_tab *map);
 void				make_zoom(int keycode, t_tab *map);
 void				arrows_move(int keycode, t_tab *map);
 int					key_pressed(int keycode, void *param);

@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 06:22:40 by mzhu              #+#    #+#             */
-/*   Updated: 2020/03/03 22:17:12 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/04 16:53:17 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int			fdf(char *argv)
 	if (!(map.plan = (t_point**)malloc(sizeof(t_point*) * map.height)))
 		printf("malloc du plan");
 	map_construct(&map);
-	// apply_iso(&map);
+	apply_iso(&map);
 	initial_mlx(&map);
 	return (!cmp || !fd);
 }

@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 18:24:55 by mzhu              #+#    #+#             */
-/*   Updated: 2020/03/03 22:25:20 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/04 18:44:11 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ int				key_pressed(int keycode, void *param)
 	t_tab		*map;
 
 	map = (t_tab*)param;
-	// map->scale = 50;
-	// printf("map->height == %d\n", map->height);
-	// (void)param;
-	// (void)keycode;
+
 	mlx_clear_window(map->mlx.ptr, map->mlx.window);
 	if (keycode == 53)
 		ending_it(map);

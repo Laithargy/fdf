@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 04:50:32 by mzhu              #+#    #+#             */
-/*   Updated: 2020/03/03 22:24:03 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/04 16:53:44 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ t_point			*allocate_struct(int x, int y, t_tab *map)
 
 	if (!(point = (t_point*)malloc(sizeof(t_point))))
 		return (NULL);
-	point->x = x;
-	point->y = y;
-	point->z = map->tab[y][x];
+	point->x = x * 15;
+	point->y = y * 15;
+	point->z = map->tab[y][x] * 15;
 	return (point);
 }
 
