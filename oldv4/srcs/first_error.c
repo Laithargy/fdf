@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 17:19:21 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/29 14:33:31 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/07 04:35:56 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int				valid_line(char *str)
 	return (0);
 }
 
-void			check_first(int fd, int *size_line, int *nb_line)
+void			check_first(int fd, size_t *size_line, size_t *nb_line)
 {
 	int			lines;
 	int			nb_chr;

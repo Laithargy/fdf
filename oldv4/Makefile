@@ -6,7 +6,7 @@
 #    By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/09 22:41:51 by mzhu              #+#    #+#              #
-#    Updated: 2020/02/22 16:21:43 by mzhu             ###   ########.fr        #
+#    Updated: 2020/03/07 01:01:41 by mzhu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJ				:= $(patsubst $(SRC_DIR)/%.c,$(OUTPUT_DIR)/%.o,$(SRCS))
 
 DEP				:= $(OBJ:.o=.d)
 
-CFLAGS			= -I . -Wall -Wextra -Werror
+CFLAGS			= -g -I . -Wall -Wextra -Werror
 
 
 LDFLAGS			= -lmlx -framework OpenGL -framework Appkit -L ./Libft -lft 

@@ -6,32 +6,81 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 04:39:14 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/29 15:37:37 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/11 07:42:36 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// void		rot3d(t_tab *map,int keyboard)
-// {
-// 	int		new_x;
-// 	int		new_y;
-// 	int		new_z;
+#include <fdf.h>
 
-// 	if (type == 1)
-// 	{
-// 		new_x = x;
-// 		new_y = y * cos(0.523599) + z * sin(0.523599);
-// 		new_z = -y * sin(0.523599) + z * cos(0.523599);
-// 	}
-// 	if (type == 2)
-// 	{
-// 		new_x = x * cos(0.523599) + z * sin(0.523599);
-// 		new_y = y;
-// 		new_z = -x * sin(0.523599) + z * cos(0.523599);
-// 	}
-// 	if (type == 3)
-// 	{
-// 		new_x = x * cos(0.523599) - y * sin(0.523599);
-// 		new_y = x * sin(0.523599) + y * cos(0.523599);
-// 		new_z = z;
-// 	}
-// }
+void			rotax(t_tab *map)
+{
+	size_t		x;
+	size_t		y;
+
+	y = 0;
+	while (y < map->height)
+	{
+		x = 0;
+		while (x < map->width)
+		{
+			map->copy[y][x].y = ((map->copy[y][x].y * cos(map->bonus.t_x))
+				+ (map->copy[y][x].z * sin(map->bonus.t_x)));
+			map->copy[y][x].z = ((-map->copy[y][x].y * sin(map->bonus.t_x)
+				+ map->copy[y][x].z * cos(map->bonus.t_x)));
+			x++;
+		}
+		y++;
+	}
+}
+
+void			rotay(t_tab *map)
+{
+	size_t		x;
+	size_t		y;
+
+	y = 0;
+	while (y < map->height)
+	{
+		x = 0;
+		while (x < map->width)
+		{
+			map->copy[y][x].x = ((map->copy[y][x].x * cos(map->bonus.t_y))
+				+ (map->copy[y][x].z * sin(map->bonus.t_y)));
+			map->copy[y][x].z = ((-map->copy[y][x].x * sin(map->bonus.t_y)
+				+ map->copy[y][x].z * cos(map->bonus.t_y)));
+			x++;
+		}
+		y++;
+	}
+}
+
+void			rotaz(t_tab *map)
+{
+	size_t		x;
+	size_t		y;
+
+	y = 0;
+	while (y < map->height)
+	{
+		x = 0;
+		while (x < map->width)
+		{
+			map->copy[y][x].x = ((map->copy[y][x].x * cos(map->bonus.t_z))
+				- (map->copy[y][x].y * sin(map->bonus.t_z)));
+			map->copy[y][x].y = ((map->copy[y][x].x * sin(map->bonus.t_z))
+				+ (map->copy[y][x].y * cos(map->bonus.t_z)));
+			x++;
+		}
+		y++;
+	}
+}
+
+void			rotation(int keycode, t_tab *map)
+{
+	if (keycode == 0)
+		map->bonus.t_x += 0.05f;
+	if (keycode == 13)
+		map->bonus.t_y += 0.05f;
+	if (keycode == 2)
+		map->bonus.t_z += 0.05f;
+}

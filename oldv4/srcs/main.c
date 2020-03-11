@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:22:12 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/29 19:00:33 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/11 07:40:19 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int			main(int ac, char **av)
 	if (ac == 2)
 	{
 		if (fdf(av[1]) == -1)
-			return 0;
+			return (0);
 	}
 	else
 		write(1, "usage : .fdf 'yourfilename'", 27);

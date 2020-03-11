@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isometric.c                                        :+:      :+:    :+:   */
+/*   free_tab.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/21 14:30:28 by mzhu              #+#    #+#             */
-/*   Updated: 2020/03/04 20:47:38 by mzhu             ###   ########.fr       */
+/*   Created: 2020/03/07 10:02:57 by mzhu              #+#    #+#             */
+/*   Updated: 2020/03/11 07:52:35 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
-void			isometric(t_point *a)
+int					free_tab(t_tab *map)
 {
-	t_point		p;
+	size_t			x;
+	size_t			y;
 
-	p = *a;
-	// a->x = (int)((p.x - p.y) * 0.71);
-	// a->y = (int)((p.x + p.y) * 0.41 - a->z);
-	a->x = (int)(0.71 * (p.x - p.y));
-	a->y = (int)(-(-0.41 * (p.x + p.y)) + 0.82 * -p.z);
-	// (int)(0.71 *
-	// vec0->y = (int)(-(-0.41 * (vec0->xp0 + vec0->yp0)) + 0.82 * -vec0->zp0);	
+	y = 0;
+	while (y < map->height)
+	{
+		x = 0;
+		while (x < map->width)
+		{
+			free(&map->plan[y][x]);
+			free(&map->copy[y][x]);
+			free(&map->tab[y][x]);
+			x++;
+		}
+	}
+	return (1);
 }
