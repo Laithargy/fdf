@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 04:50:32 by mzhu              #+#    #+#             */
-/*   Updated: 2020/03/11 09:28:56 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/11 16:12:14 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,13 @@ int				map_construct(t_tab *map)
 			return (-1);
 		while (x < map->width)
 		{
-			point = allocate_struct(x, y, map);
-			map->plan[y][x] = *point;
+			if (!(point = allocate_struct(x, y, map)))
+				return (-1);
+			map->plan[y][x].x = point->x;
+			map->plan[y][x].y = point->y;
+			map->plan[y][x].z = point->z;
 			free(point);
+			point = NULL;
 			x++;
 		}
 		y++;
@@ -56,13 +60,18 @@ int				**parser(int fd, int nb_lines, int size_line)
 	char		*line;
 
 	ind = 0;
-	line = ft_strnew(1);
+	line = NULL;
+	tab = NULL;
 	if (!(tab = (int**)malloc(sizeof(int*) * nb_lines)))
 		return (NULL);
 	while (get_next_line(fd, &line) == 1)
 	{
 		tab[ind] = split_line(line, ' ', size_line + 1);
+		free(line);
+		line = NULL;
 		ind++;
 	}
+	free(line);
+	line = NULL;
 	return (tab);
 }

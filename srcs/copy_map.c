@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 04:13:04 by mzhu              #+#    #+#             */
-/*   Updated: 2020/03/11 07:52:09 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/11 15:29:44 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,25 @@ int				alloc_copy(t_tab *map)
 	{
 		if (!(map->copy[y] = (t_point*)malloc(sizeof(t_point) * map->width)))
 			return (-1);
+		printf("5 : %p |\n", map->copy[y]);
 		y++;
 	}
-	return (0);
+	return (1);
 }
 
 void			copy_tab(t_tab *map)
 {
 	size_t		x;
 	size_t		y;
+	static int	c;
 
 	y = 0;
-	if (map->copy[y] == NULL)
+	if (c == 0)
+	{
 		if ((alloc_copy(map) == -1))
 			return ;
+		c = 1;
+	}
 	while (y < map->height)
 	{
 		x = 0;

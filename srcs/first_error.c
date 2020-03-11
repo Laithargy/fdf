@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 17:19:21 by mzhu              #+#    #+#             */
-/*   Updated: 2020/03/07 04:35:56 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/11 16:27:02 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,30 +27,32 @@ int				valid_line(char *str)
 	return (0);
 }
 
-void			check_first(int fd, size_t *size_line, size_t *nb_line)
+int				check_first(int fd, size_t *size_line, size_t *nb_line)
 {
-	int			lines;
-	int			nb_chr;
-	int			cmp;
+	size_t		lines;
+	size_t		cmp;
 	char		*line;
+	int			ret;
 
 	lines = 0;
-	nb_chr = 0;
-	cmp = 0;
-	line = ft_strnew(1);
-	while (get_next_line(fd, &line) == 1)
+	line = NULL;
+	*size_line = 0;
+	while ((ret = get_next_line(fd, &line)) == 1)
 	{
 		cmp = ft_count_word(line, ' ');
-		nb_chr < cmp ? nb_chr = cmp : 0;
-		if (valid_line(line) == 1)
+		*size_line < cmp ? *size_line = cmp : 0;
+		if (valid_line(line) == 1 && (*size_line <= 1 && *nb_line <= 1))
 		{
 			*nb_line = 0;
 			*size_line = 0;
-			break ;
+			free(line);
+			write(1, "file error\n", 11);
+			return (-1);
 		}
 		lines++;
 		*nb_line = lines;
-		*size_line = nb_chr;
 		free(line);
 	}
+	free(line);
+	return (ret);
 }

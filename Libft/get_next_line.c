@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:00:24 by mzhu              #+#    #+#             */
-/*   Updated: 2020/02/20 14:39:14 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/11 16:27:53 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int					get_next_line(const int fd, char **line)
 	int				i;
 
 	i = 0;
-	if (!line || fd < 0 || fd > 1024 || (read(fd, &stock[fd], 0) < 0))
+	if (!line || fd < 0 || fd > 1024)
 		return (-1);
 	stock[fd] = ft_read_line(&stock[fd], fd);
 	while (stock[fd][i] && stock[fd][i] != '\n')
@@ -47,5 +47,12 @@ int					get_next_line(const int fd, char **line)
 	tmp = stock[fd];
 	stock[fd] = (ft_strchr(stock[fd], '\n'))
 		? ft_strsub(stock[fd], i + 1, ft_strlen(stock[fd])) : ft_strdup("");
-	return ((stock[fd][i] == '\0' && i == 0 && tmp[0] == '\0') ? 0 : 1);
+	if (stock[fd][i] == '\0' && i == 0 && tmp[0] == '\0')
+	{
+		ft_strdel(&tmp);
+		ft_strdel(&stock[fd]);
+		return (0);
+	}
+	ft_strdel(&tmp);
+	return (1);
 }

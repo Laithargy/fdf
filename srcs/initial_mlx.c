@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 21:18:50 by mzhu              #+#    #+#             */
-/*   Updated: 2020/03/07 14:24:59 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/11 15:45:54 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@ void		initial_mlx(t_tab *map)
 {
 	map->mlx.ptr = mlx_init();
 	map->mlx.window = mlx_new_window(map->mlx.ptr, WW, HH, NAME);
-	map->bonus.scale = 105;
-	map->bonus.t_x = 0;
-	map->bonus.t_y = 0;
-	map->bonus.t_z = 0;
-	map->bonus.decaley = 200;
-	map->bonus.decalex = 200;
+	map->bonus.scale = 10;
+	map->bonus.t_x = 0.2;
+	map->bonus.t_y = 0.3;
+	map->bonus.t_z = 0.1;
+	map->bonus.decaley = 350;
+	map->bonus.decalex = 350;
 	copy_tab(map);
-	apply_rot(map);
 	apply_zoom(map);
+	apply_rot(map);
+	apply_iso(map);
 	apply_decal(map);
 	draw(map);
 	mlx_hook(map->mlx.window, 2, 0, key_pressed, map);

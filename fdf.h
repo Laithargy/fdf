@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 07:44:34 by mzhu              #+#    #+#             */
-/*   Updated: 2020/03/11 07:47:41 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/11 16:00:49 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # define NAME "fdf_proj"
 # define HH 1080
 # define WW 1920
-# define SPACE 250
 
 # include "./Libft/libft.h"
 # include <mlx.h>
@@ -38,13 +37,15 @@ typedef struct		s_mlx
 {
 	void			*ptr;
 	void			*window;
+	int				clear;
 	int				loop;
 }					t_mlx;
 
 typedef struct		s_p
 {
-	int x;
-	int y;
+	int				x;
+	int				y;
+	int				z;
 }					t_p;
 
 typedef struct		s_algo
@@ -82,7 +83,7 @@ typedef struct		s_tab
 	t_bonus			bonus;
 }					t_tab;
 
-void				check_first(int fd, size_t *size_line, size_t *nb_line);
+int					check_first(int fd, size_t *size_line, size_t *nb_line);
 int					valid_line(char *str);
 int					alloc_copy(t_tab *map);
 int					check_error(char *argv, t_tab *map);
@@ -108,5 +109,6 @@ void				rotaz(t_tab *map);
 void				copy_tab(t_tab *map);
 int					free_tab(t_tab *map);
 void				apply_decal(t_tab *map);
+void				apply_iso(t_tab *map);
 
 #endif

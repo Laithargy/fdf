@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_tab.c                                         :+:      :+:    :+:   */
+/*   isometric.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/07 10:02:57 by mzhu              #+#    #+#             */
-/*   Updated: 2020/03/11 14:36:25 by mzhu             ###   ########.fr       */
+/*   Created: 2020/02/21 14:30:28 by mzhu              #+#    #+#             */
+/*   Updated: 2020/03/11 11:51:00 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
-int					free_tab(t_tab *map)
+void			isometric(t_point *a)
 {
-	size_t			y;
+	t_point		p;
+
+	p = *a;
+	a->x = (p.x - p.y) * cos(0.46373398);
+	a->y = (p.x + p.y) * cos(0.46373398) - a->z;
+}
+
+void			apply_iso(t_tab *map)
+{
+	size_t		x;
+	size_t		y;
 
 	y = 0;
 	while (y < map->height)
 	{
-		free(map->plan[y]);
-		free(map->copy[y]);
-		free(map->tab[y]);
+		x = 0;
+		while (x < map->width)
+		{
+			isometric(&map->copy[y][x]);
+			x++;
+		}
 		y++;
 	}
-	free(map->plan);
-	free(map->copy);
-	free(map->tab);
-	mlx_clear_window(map->mlx.ptr, map->mlx.window);
-	map->plan = NULL;
-	map->copy = NULL;
-	map->tab = NULL;
-	map->mlx.ptr = NULL;
-	if (map->mlx.ptr && map->mlx.window)
-		mlx_destroy_window(map->mlx.ptr, map->mlx.window);
-	map->mlx.ptr = NULL;
-	map->mlx.window = NULL;
-	return (1);
 }
