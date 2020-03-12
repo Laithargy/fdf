@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 18:24:55 by mzhu              #+#    #+#             */
-/*   Updated: 2020/03/11 15:55:35 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/12 16:36:28 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int				ending_it(void *param)
 
 	map = (t_tab*)param;
 	free_tab(map);
+	while (1);
 	exit(0);
 	return (0);
 }

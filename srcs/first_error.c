@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 17:19:21 by mzhu              #+#    #+#             */
-/*   Updated: 2020/03/11 16:27:02 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/12 16:44:41 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int				check_first(int fd, size_t *size_line, size_t *nb_line)
 	{
 		cmp = ft_count_word(line, ' ');
 		*size_line < cmp ? *size_line = cmp : 0;
-		if (valid_line(line) == 1 && (*size_line <= 1 && *nb_line <= 1))
+		if (valid_line(line) == 1)
 		{
 			*nb_line = 0;
 			*size_line = 0;

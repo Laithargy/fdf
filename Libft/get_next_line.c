@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:00:24 by mzhu              #+#    #+#             */
-/*   Updated: 2020/03/11 16:27:53 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/12 16:31:45 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static char			*ft_read_line(char **stock, int fd)
 	while ((rd = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[rd] = '\0';
+		if ((int)ft_strlen(buf) != rd)
+			return (NULL);
 		if (!*stock)
 			*stock = ft_strdup(buf);
 		else
@@ -39,7 +41,8 @@ int					get_next_line(const int fd, char **line)
 	i = 0;
 	if (!line || fd < 0 || fd > 1024)
 		return (-1);
-	stock[fd] = ft_read_line(&stock[fd], fd);
+	if (!(stock[fd] = ft_read_line(&stock[fd], fd)))
+		return (-1);
 	while (stock[fd][i] && stock[fd][i] != '\n')
 		i++;
 	*line = (ft_strchr(stock[fd], '\n'))
