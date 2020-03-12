@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 10:02:57 by mzhu              #+#    #+#             */
-/*   Updated: 2020/03/11 14:36:25 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/12 17:45:21 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int					free_tab(t_tab *map)
 		free(map->tab[y]);
 		y++;
 	}
-	free(map->plan);
-	free(map->copy);
-	free(map->tab);
+	// free(map->plan);
+	// free(map->copy);
+	// free(map->tab);
 	mlx_clear_window(map->mlx.ptr, map->mlx.window);
 	map->plan = NULL;
 	map->copy = NULL;

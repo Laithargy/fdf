@@ -6,7 +6,7 @@
 /*   By: mzhu <mzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 04:50:32 by mzhu              #+#    #+#             */
-/*   Updated: 2020/03/12 16:47:51 by mzhu             ###   ########.fr       */
+/*   Updated: 2020/03/12 17:59:06 by mzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ int				map_construct(t_tab *map)
 
 	x = 0;
 	y = 0;
-	if (!(point = (t_point*)malloc(sizeof(t_point))))
-		return (-1);
+	point = NULL;
 	while (y < map->height)
 	{
 		x = 0;
